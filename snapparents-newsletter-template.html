@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapParents Monthly Newsletter - [MONTH/YEAR]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FFFC00 0%, #FFD700 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #333;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .header .month {
+            font-size: 16px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #FFFC00;
+            display: inline-block;
+        }
+
+        .article {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .article:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .article h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .article .source {
+            font-size: 13px;
+            color: #999;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .article p {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .tip-box {
+            background-color: #fef9e7;
+            border-left: 4px solid #FFFC00;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+        }
+
+        .tip-box strong {
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .resource-list {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .resource-list li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            color: #555;
+        }
+
+        .resource-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #FFFC00;
+            font-weight: bold;
+        }
+
+        .resource-list a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .resource-list a:hover {
+            text-decoration: underline;
+        }
+
+        .events-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        .event-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .event-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .event-date {
+            font-size: 14px;
+            color: #FFFC00;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .event-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin: 4px 0 8px 0;
+        }
+
+        .event-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #FFFC00;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .btn:hover {
+            background-color: #FFD700;
+        }
+
+        .footer {
+            background-color: #f5f5f5;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .divider {
+            height: 2px;
+            background-color: #FFFC00;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>SnapParents</h1>
+            <div class="month">[MONTH YEAR] Newsletter</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Welcome Section -->
+            <div class="section">
+                <p style="font-size: 15px; color: #666; margin-bottom: 16px;">
+                    Welcome to the SnapParents monthly newsletter! This month we're bringing you actionable advice,
+                    relevant news, and resources to help you navigate parenthood and a career in tech.
+                </p>
+            </div>
+
+            <!-- Featured Article -->
+            <div class="divider"></div>
+            <div class="section">
+                <h2>Featured</h2>
+                <div class="article">
+                    <h3>[ARTICLE HEADLINE]</h3>
+                    <div class="source">Source: [Publication/Author]</div>
+                    <p>
+                        [Brief description of the article and why it matters to parents in tech]
+                    </p>
+                    <p>
+                        <strong>Key Takeaway:</strong> [One actionable insight]
+                    </p>
+                </div>
+            </div>
+
+            <!-- Actionable Advice -->
+            <div class="divider"></div>
+            <div class="section">
+                <h2>Actionable Advice</h2>
+
+                <div class="article">
+                    <h3>[ADVICE TOPIC 1]</h3>
+                    <div class="source">Source: [Expert/Article]</div>
+                    <p>
+                        [Context about the topic and challenge]
+                    </p>
+                    <div class="tip-box">
+                        <strong>💡 How to Apply This:</strong>
+                        <ol style="margin-left: 20px; margin-top: 8px;">
+                            <li style="margin-bottom: 6px;">[Step 1]</li>
+                            <li style="margin-bottom: 6px;">[Step 2]</li>
+                            <li>[Step 3]</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="article">
+                    <h3>[ADVICE TOPIC 2]</h3>
+                    <div class="source">Source: [Expert/Article]</div>
+                    <p>
+                        [Context about the topic and challenge]
+                    </p>
+                    <div class="tip-box">
+                        <strong>💡 How to Apply This:</strong>
+                        <ul class="resource-list">
+                            <li>[Practical tip 1]</li>
+                            <li>[Practical tip 2]</li>
+                            <li>[Practical tip 3]</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News & Trends -->
+            <div class="divider"></div>
+            <div class="section">
+                <h2>News & Trends for Parents in Tech</h2>
+
+                <div class="article">
+                    <h3>[NEWS HEADLINE]</h3>
+                    <div class="source">Source: [Publication]</div>
+                    <p>
+                        [Summary of the news and why it's relevant to parents in tech]
+                    </p>
+                </div>
+
+                <div class="article">
+                    <h3>[NEWS HEADLINE]</h3>
+                    <div class="source">Source: [Publication]</div>
+                    <p>
+                        [Summary of the news and why it's relevant to parents in tech]
+                    </p>
+                </div>
+
+                <div class="article">
+                    <h3>[NEWS HEADLINE]</h3>
+                    <div class="source">Source: [Publication]</div>
+                    <p>
+                        [Summary of the news and why it's relevant to parents in tech]
+                    </p>
+                </div>
+            </div>
+
+            <!-- Resources -->
+            <div class="divider"></div>
+            <div class="section">
+                <h2>Resources This Month</h2>
+                <p style="margin-bottom: 16px; color: #666;">
+                    Curated tools, articles, and programs to support your journey as a parent in tech:
+                </p>
+                <ul class="resource-list">
+                    <li><a href="#">[Resource Title]</a> - [Brief description]</li>
+                    <li><a href="#">[Resource Title]</a> - [Brief description]</li>
+                    <li><a href="#">[Resource Title]</a> - [Brief description]</li>
+                    <li><a href="#">[Resource Title]</a> - [Brief description]</li>
+                    <li><a href="#">[Resource Title]</a> - [Brief description]</li>
+                </ul>
+            </div>
+
+            <!-- Events Section -->
+            <div class="divider"></div>
+            <div class="section">
+                <h2>SnapParents Events</h2>
+                <div class="events-section">
+                    <div class="event-item">
+                        <div class="event-date">[DATE]</div>
+                        <div class="event-title">[EVENT TITLE]</div>
+                        <div class="event-description">
+                            [Event description, time, and location/meeting link]
+                        </div>
+                        <a href="#" class="btn">Learn More / RSVP</a>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-date">[DATE]</div>
+                        <div class="event-title">[EVENT TITLE]</div>
+                        <div class="event-description">
+                            [Event description, time, and location/meeting link]
+                        </div>
+                        <a href="#" class="btn">Learn More / RSVP</a>
+                    </div>
+
+                    <div class="event-item">
+                        <div class="event-date">[DATE]</div>
+                        <div class="event-title">[EVENT TITLE]</div>
+                        <div class="event-description">
+                            [Event description, time, and location/meeting link]
+                        </div>
+                        <a href="#" class="btn">Learn More / RSVP</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="divider"></div>
+            <div class="section" style="text-align: center;">
+                <h2 style="border: none; display: block; margin-bottom: 16px;">Get Involved</h2>
+                <p style="margin-bottom: 20px; color: #666;">
+                    Have a resource, article, or event to share? We'd love to hear from you!
+                </p>
+                <a href="mailto:snapparents@snapchat.com" class="btn">Share with the Community</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p style="margin-bottom: 12px;">
+                <strong>SnapParents</strong> — Snapchat's Employee Resource Group for Parents and Caregivers
+            </p>
+            <p style="margin-bottom: 16px;">
+                Have feedback on this newsletter?
+                <a href="mailto:snapparents@snapchat.com">Let us know</a>
+            </p>
+            <p style="font-size: 12px; color: #bbb;">
+                © [YEAR] Snap Inc. All rights reserved.<br>
+                You're receiving this because you're part of the SnapParents community.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
