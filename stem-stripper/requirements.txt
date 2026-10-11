@@ -1,0 +1,6 @@
+# Demucs 4.0.1 saves audio with torchaudio.save, which newer torchaudio
+# releases moved to a separate backend. Pinning a known-compatible pair.
+demucs==4.0.1
+torch==2.5.1
+torchaudio==2.5.1
+soundfile

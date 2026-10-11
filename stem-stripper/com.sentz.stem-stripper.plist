@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  macOS LaunchAgent: runs stem_stripper.py in --watch mode at login and keeps it alive.
+  1. Replace every /Users/YOURNAME/... path below with your real paths.
+  2. cp com.sentz.stem-stripper.plist ~/Library/LaunchAgents/
+  3. launchctl load ~/Library/LaunchAgents/com.sentz.stem-stripper.plist
+  Stop it:  launchctl unload ~/Library/LaunchAgents/com.sentz.stem-stripper.plist
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.sentz.stem-stripper</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/YOURNAME/stem-stripper/.venv/bin/python</string>
+        <string>/Users/YOURNAME/stem-stripper/stem_stripper.py</string>
+        <string>--incoming</string><string>/Users/YOURNAME/Music/Samples/Incoming</string>
+        <string>--output</string><string>/Users/YOURNAME/Music/Samples/Instrumental</string>
+        <string>--archive</string><string>/Users/YOURNAME/Music/Samples/Archive</string>
+        <string>--watch</string>
+    </array>
+
+    <!-- launchd doesn't load your shell profile; make Homebrew's ffmpeg findable -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/YOURNAME/Library/Logs/stem-stripper.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/YOURNAME/Library/Logs/stem-stripper.log</string>
+</dict>
+</plist>
