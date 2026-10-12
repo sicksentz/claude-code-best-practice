@@ -80,18 +80,20 @@ def is_stable(path: Path, wait_seconds: float) -> bool:
 # ---------------------------------------------------------------------------
 
 def pick_device(requested: str) -> str:
-    """Resolve 'auto' to mps (Apple Silicon GPU), cuda or cpu."""
+    """Resolve 'auto' to cuda or cpu.
+
+    Apple's GPU (mps) is deliberately skipped: htdemucs has a conv layer with
+    more than 65536 output channels, which MPS rejects outright
+    ("Output channels > 65536 not supported at the MPS device"), and
+    PYTORCH_ENABLE_MPS_FALLBACK doesn't cover it. Still selectable via --device mps.
+    """
     if requested != "auto":
         return requested
     try:
         import torch
     except ImportError:
         return "cpu"
-    if torch.cuda.is_available():
-        return "cuda"
-    if getattr(torch.backends, "mps", None) and torch.backends.mps.is_available():
-        return "mps"
-    return "cpu"
+    return "cuda" if torch.cuda.is_available() else "cpu"
 
 
 def separate_other_stem(src: Path, work_dir: Path, model: str, device: str) -> Path:
@@ -204,7 +206,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument("--model", default=DEFAULT_MODEL,
                    help="Demucs model: htdemucs (default, fast) or htdemucs_ft (slower, a bit cleaner)")
     p.add_argument("--device", default="auto", choices=["auto", "mps", "cpu", "cuda"],
-                   help="Processing device (default auto: Apple GPU if available)")
+                   help="Processing device (default auto: CPU on Macs, CUDA if available)")
     p.add_argument("--dry-run", action="store_true", help="Show what would happen, change nothing")
     p.add_argument("-v", "--verbose", action="store_true", help="Debug logging")
     return p.parse_args(argv)

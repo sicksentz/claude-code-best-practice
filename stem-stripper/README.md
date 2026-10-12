@@ -44,7 +44,7 @@ The first real run downloads the Demucs model (~80 MB) to `~/.cache/torch`.
 | `--watch` | off | Keep checking Incoming; waits for each file to finish copying first |
 | `--interval` | `5` | Seconds between checks in watch mode |
 | `--model` | `htdemucs` | `htdemucs_ft` is ~4x slower but a little cleaner |
-| `--device` | `auto` | Uses the Apple Silicon GPU (`mps`) when available, else CPU |
+| `--device` | `auto` | CPU on Macs (Apple's GPU can't run htdemucs — it rejects one of its layers); CUDA on NVIDIA machines |
 | `--dry-run` | off | Print the plan, move nothing |
 | `-v` | off | Debug logging |
 
