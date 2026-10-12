@@ -24,8 +24,11 @@ say "Cleaning up earlier attempts"
 for old in "$HOME/stem-stripper" "$HOME/stem-stripper-download"; do
   [ -e "$old" ] || continue
   if git -C "$old" remote get-url origin 2>/dev/null | grep -q "claude-code-best-practice"; then
-    rm -rf "$old"
-    ok "Removed $old (it was an old download of this repo)"
+    # Move to the Trash rather than rm: works even if files inside are owned by
+    # root (moving only needs write access to $HOME), and it's recoverable.
+    mkdir -p "$HOME/.Trash"
+    mv "$old" "$HOME/.Trash/$(basename "$old")-old-$(date +%Y%m%d-%H%M%S)"
+    ok "Moved $old to the Trash (it was an old download of this repo)"
   else
     warn "Left $old alone — it isn't a download of this repo, so I won't delete it"
   fi
